@@ -1,11 +1,11 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Router from './Router';
 
 function App() {
   return (
     <div>
-      <h1>lalal</h1>
+      <Router />
     </div>
   );
 }
