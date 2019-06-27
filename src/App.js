@@ -1,14 +1,19 @@
 import React from 'react';
 import './App.css';
-// import Router from './Router';
+
 
 import TestFetchComponent from './Components/TestFetchComponent';
+
+import Layout from './Components/Layout';
+import Router from './Router';
+
 
 function App() {
   return (
     <div>
-      {/* <Router /> */}
       <TestFetchComponent />
+      <Layout />
+      <Router />
     </div>
   );
 }
