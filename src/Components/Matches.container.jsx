@@ -1,22 +1,28 @@
 import React, { Component } from 'react';
+
 import { connect } from 'react-redux';
 
-import { fetchWilders } from '../Actions/wildersAction';
+import { fetchMatches } from '../Actions/matchesAction';
+import MatchDual from './MatchDualComponent';
 
-class TestFetchComponent extends Component {
+class MatchesContainer extends Component {
   componentDidMount() {
-    this.props.fetchWilders();
+    this.props.fetchMatches();
   }
-
   render() {
     const { error, isLoading, data } = this.props;
-
     if (error) {
       return <div>Error! {error.message}</div>;
     } else if (isLoading) {
       return <div>Loading ...</div>;
     } else {
-      return <div>{data.map((item) => item.firstname)}</div>;
+      return (
+        <div>
+          {data.map((result, index) => {
+            return <MatchDual {...result} key={index} />;
+          })}
+        </div>
+      );
     }
   }
 }
@@ -31,8 +37,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchWilders: () => {
-      dispatch(fetchWilders());
+    fetchMatches: () => {
+      dispatch(fetchMatches());
     },
   };
 };
@@ -40,4 +46,4 @@ const mapDispatchToProps = (dispatch) => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(TestFetchComponent);
+)(MatchesContainer);
