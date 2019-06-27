@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { fetchIsLoading, fetchSuccess, fetchError } from './fetchActions';
 
-export const fetchWilders = () => {
+export const fetchMatches = () => {
   return async (dispatch) => {
     dispatch(fetchIsLoading());
     axios
