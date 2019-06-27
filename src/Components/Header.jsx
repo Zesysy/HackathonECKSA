@@ -1,6 +1,6 @@
 import React from 'react';
 import { Navbar } from 'react-bootstrap';
-import Logo from '../Logo.png';
+import Logo from '../assets/images/Logo.png';
 import './Header.css';
 
 class Header extends React.Component {
