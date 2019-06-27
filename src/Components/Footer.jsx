@@ -1,10 +1,11 @@
 import React from 'react';
 import { Navbar, Nav } from 'react-bootstrap';
+import './Footer.css';
 
 class Footer extends React.Component {
   render() {
     return (
-      <div>
+      <div id="Footer">
         <Navbar bg="dark" variant="dark">
           <Nav className="mr-auto">
             <Nav.Link href="">Matchs</Nav.Link>
