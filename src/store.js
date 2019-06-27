@@ -6,7 +6,7 @@ import fetchReducer from './reducers';
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const myStore = createStore(
-  combineReducers({ fetchReducer }), // combineReducers si tu veux y accéder par sa clé 'fetchReducer' ;)
+  combineReducers({ fetchReducer }),
   composeEnhancer(applyMiddleware(thunk)),
 );
 

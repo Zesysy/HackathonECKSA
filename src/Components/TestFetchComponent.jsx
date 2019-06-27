@@ -1,26 +1,26 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { fetchTest } from '../Actions/fetchActions';
+import { fetchWilders } from '../Actions/wildersAction';
 
 class TestFetchComponent extends Component {
   componentDidMount() {
-    this.props.fetchTest();
+    this.props.fetchWilders();
   }
 
   render() {
-    const { error, loading, data } = this.props;
+    const { error, isLoading, data } = this.props;
 
     if (error) {
       return <div>Error! {error.message}</div>;
-    } else if (loading) {
+    } else if (isLoading) {
       return <div>Loading ...</div>;
     } else {
       return (
         <div>
           <h1>HELLO WORLD</h1>
 
-          {data.map((item) => item.name)}
+          {data.map((item) => item.firstname)}
         </div>
       );
     }
@@ -30,15 +30,15 @@ class TestFetchComponent extends Component {
 const mapStateToProps = (state) => {
   return {
     data: state.fetchReducer.data,
-    loading: state.fetchReducer.loading,
+    loading: state.fetchReducer.isLoading,
     error: state.fetchReducer.error,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchTest: () => {
-      dispatch(fetchTest());
+    fetchWilders: () => {
+      dispatch(fetchWilders());
     },
   };
 };

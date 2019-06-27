@@ -1,21 +1,21 @@
 import {
-  FETCH_LOADING,
-  FETCH_LOADING_FAILURE,
-  FETCH_LOADING_SUCCESS,
+  FETCH_ISLOADING,
+  FETCH_ERROR,
+  FETCH_SUCCESS,
 } from './Actions/fetchActions';
 
-const initialState = { data: [], loading: false, error: null };
+const initialState = { data: [], isLoading: false, error: null };
 
 const fetchReducer = (state = initialState, action) => {
   switch (action.type) {
-    case FETCH_LOADING:
-      return { ...state, loading: true, error: null };
-    case FETCH_LOADING_SUCCESS:
-      return { ...state, loading: false, data: action.payload };
-    case FETCH_LOADING_FAILURE:
+    case FETCH_ISLOADING:
+      return { ...state, isLoading: true, error: null };
+    case FETCH_SUCCESS:
+      return { ...state, isLoading: false, data: action.payload };
+    case FETCH_ERROR:
       return {
         ...state,
-        loading: false,
+        isLoading: false,
         error: action.payload,
         data: [],
       };
