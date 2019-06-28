@@ -16,13 +16,7 @@ class TestFetchComponent extends Component {
     } else if (isLoading) {
       return <div>Loading ...</div>;
     } else {
-      return (
-        <div>
-          <h1>HELLO WORLD</h1>
-
-          {data.map((item) => item.firstname)}
-        </div>
-      );
+      return <div>{data.map((item) => item.firstname)}</div>;
     }
   }
 }
