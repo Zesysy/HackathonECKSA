@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-import { Card, ListGroup, Row } from 'react-bootstrap';
+import { Card, Row } from 'react-bootstrap';
 
 import { connect } from 'react-redux';
 
 import { fetchMatches } from '../Actions/matchesAction';
 import MatchDual from './MatchDualComponent';
 import Layout from './Layout';
-import { Container } from 'react-bootstrap';
 
 import styles from './MatchDualComponent.module.css';
 

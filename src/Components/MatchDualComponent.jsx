@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, ListGroup, Row } from 'react-bootstrap';
+import { Card, Row } from 'react-bootstrap';
 
 import styles from './MatchDualComponent.module.css';
 
@@ -29,23 +29,4 @@ const MatchDual = (props) => {
   }
 };
 
-const mapStateToProps = (state) => {
-  return {
-    data: state.fetchReducer.data,
-    loading: state.fetchReducer.isLoading,
-    error: state.fetchReducer.error,
-  };
-};
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    fetchCampuses: () => {
-      dispatch(fetchCampuses());
-    },
-  };
-};
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(MatchDual);
+export default MatchDual;
