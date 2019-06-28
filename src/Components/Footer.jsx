@@ -10,7 +10,7 @@ class Footer extends React.Component {
           <Nav className="mr-auto">
             <Nav.Link href="">Matchs</Nav.Link>
             <Nav.Link href="">Classement</Nav.Link>
-            <Nav.Link href="">Équipes</Nav.Link>
+            <Nav.Link href="/team">Équipes</Nav.Link>
           </Nav>
         </Navbar>
       </div>

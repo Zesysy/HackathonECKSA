@@ -1,12 +1,12 @@
 import React from 'react';
 
 import Layout from './Layout';
-import TeamComponent from './TeamComponent';
+import WilderComponent from './WilderComponent';
 
 const TeamPage = () => {
   return (
     <Layout>
-      <TeamComponent />
+      <WilderComponent />
     </Layout>
   );
 };
