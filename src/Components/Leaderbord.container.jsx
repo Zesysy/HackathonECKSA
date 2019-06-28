@@ -10,6 +10,22 @@ class LeaderbordComponentView extends React.Component {
 
   render() {
     const { error, isLoading, data } = this.props;
+
+    const capitalize = (str) => {
+      return str.replace(/\w\S*/g, function(txt) {
+        return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+      });
+    };
+    let filterManager = [
+      ...new Set(
+        data.map(
+          (item) =>
+            ` ${capitalize(
+              item.manager.firstname,
+            )}  ${item.manager.lastname.toUpperCase()}`,
+        ),
+      ),
+    ];
     if (error) {
       return <div>Error ! {error.message}</div>;
     } else if (isLoading) {
@@ -22,7 +38,7 @@ class LeaderbordComponentView extends React.Component {
             {data.map((result, index) => {
               return (
                 <li {...result} key={index}>
-                  {result.name}
+                  {result.name}, Manager: {filterManager[index]}
                 </li>
               );
             })}
