@@ -29,4 +29,23 @@ const MatchDual = (props) => {
   }
 };
 
-export default MatchDual;
+const mapStateToProps = (state) => {
+  return {
+    data: state.fetchReducer.data,
+    loading: state.fetchReducer.isLoading,
+    error: state.fetchReducer.error,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    fetchCampuses: () => {
+      dispatch(fetchCampuses());
+    },
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(MatchDual);

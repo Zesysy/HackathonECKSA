@@ -5,6 +5,8 @@ import { connect } from 'react-redux';
 
 import { fetchMatches } from '../Actions/matchesAction';
 import MatchDual from './MatchDualComponent';
+import Layout from './Layout';
+import { Container } from 'react-bootstrap';
 
 import styles from './MatchDualComponent.module.css';
 
@@ -15,9 +17,9 @@ class MatchesContainer extends Component {
   render() {
     const { error, isLoading, data } = this.props;
     if (error) {
-      return <div>Error! {error.message}</div>;
+      return <Layout>Error! {error.message}</Layout>;
     } else if (isLoading) {
-      return <div>Loading ...</div>;
+      return <Layout>Loading ...</Layout>;
     } else {
       return (
         <>
