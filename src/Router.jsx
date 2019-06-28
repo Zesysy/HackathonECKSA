@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import Leaderbord from './Components/Leaderbord.container';
+import LeaderbordComponentView from './Components/Leaderbord.container';
 import HomePage from './Components/Home/HomePage.container';
 
 const Router = () => {
@@ -9,8 +9,8 @@ const Router = () => {
       <div>
         <Switch>
           {/* <Route path="/matches" component={}/> */}
-          <Route path="/ranking" component={Leaderbord} />
           <Route path="/" exact component={HomePage} />
+          <Route path="/ranking" exact component={LeaderbordComponentView} />
           {/* <Route path="/team" component={}/>  */}
         </Switch>
       </div>

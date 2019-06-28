@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 import { fetchMatches } from '../../Actions/matchesAction';
 import Layout from '../Layout/Layout';
 import { Container } from 'react-bootstrap';
+import Loading from '../Loading';
 
 class NextMatchContainer extends React.Component {
   componentDidMount() {
@@ -16,7 +17,11 @@ class NextMatchContainer extends React.Component {
     if (error) {
       return <Layout>Error! {error.message}</Layout>;
     } else if (isLoading) {
-      return <Layout>Loading ...</Layout>;
+      return (
+        <Layout>
+          <Loading />
+        </Layout>
+      );
     } else {
       if ({ winnerUid } === false) {
         console.log({ winnerUid });
@@ -35,9 +40,9 @@ class NextMatchContainer extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    data: state.fetchReducer.data,
-    loading: state.fetchReducer.isLoading,
-    error: state.fetchReducer.error,
+    data: state.fetchMatchesReducer.data,
+    loading: state.fetchMatchesReducer.isLoading,
+    error: state.fetchMatchesReducer.error,
   };
 };
 

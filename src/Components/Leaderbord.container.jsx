@@ -1,14 +1,18 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { fetchCampuses } from '../Actions/campusesAction';
-import { Container } from 'react-bootstrap';
+import Layout from '../Components/Layout/Layout';
+import Loading from './Loading';
 
 class LeaderbordComponentView extends React.Component {
   componentDidMount() {
     this.props.fetchCampuses();
   }
 
+  capitalize = () => {};
+
   render() {
+    debugger;
     const { error, isLoading, data } = this.props;
 
     const capitalize = (str) => {
@@ -16,6 +20,7 @@ class LeaderbordComponentView extends React.Component {
         return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
       });
     };
+    // debugger;
     let filterManager = [
       ...new Set(
         data.map(
@@ -29,10 +34,10 @@ class LeaderbordComponentView extends React.Component {
     if (error) {
       return <div>Error ! {error.message}</div>;
     } else if (isLoading) {
-      return <div>Loading...</div>;
+      return <Loading />;
     } else {
       return (
-        <Container>
+        <Layout>
           <h1>Classement</h1>
           <ol>
             {data.map((result, index) => {
@@ -43,7 +48,7 @@ class LeaderbordComponentView extends React.Component {
               );
             })}
           </ol>
-        </Container>
+        </Layout>
       );
     }
   }
@@ -51,9 +56,9 @@ class LeaderbordComponentView extends React.Component {
 
 const mapStatetoProps = (state) => {
   return {
-    data: state.fetchReducer.data,
-    isLoading: state.fetchReducer.isLoading,
-    error: state.fetchReducer.error,
+    data: state.fetchCampusesReducer.data,
+    isLoading: state.fetchCampusesReducer.isLoading,
+    error: state.fetchCampusesReducer.error,
   };
 };
 
