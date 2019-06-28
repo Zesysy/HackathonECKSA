@@ -12,32 +12,9 @@ const capitalize = (str) => {
 };
 
 class WilderComponent extends Component {
-  constructor(props) {
-    super(props);
-    this.toggle = this.toggle.bind(this);
-    this.select = this.select.bind(this);
-    this.state = {
-      dropdownOpen: false,
-      value: 'Home',
-    };
-  }
-
   componentDidMount() {
     this.props.fetchWilders();
   }
-
-  toggle() {
-    this.setState({
-      dropdownOpen: !this.state.dropdownOpen,
-    });
-  }
-
-  select(event) {
-    this.setState({
-      dropdownOpen: !this.state.dropdownOpen,
-    });
-  }
-
   render() {
     const { error, isLoading, data } = this.props;
     if (error) {
