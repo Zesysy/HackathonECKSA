@@ -10,6 +10,7 @@ const Router = () => {
           {/* <Route path="/" exact component={}/> */}
           <Route path="/matches" component={MatchesContainer} />
           {/* <Route path="/ranking" component={}/>
+          <Route path="/matches" component={}/>
           <Route path="/team" component={}/> */}
         </Switch>
       </div>
