@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import MatchesContainer from './Components/Matches.container';
 import HomePage from './Components/Home/HomePage.container';
 import TeamPage from './Components/TeamPage.container';
 
@@ -8,10 +9,6 @@ const Router = () => {
     <BrowserRouter>
       <div>
         <Switch>
-          <Route path="/" exact component={HomePage} />
-          {/* <Route path="/matches" component={}/>
-          <Route path="/ranking" component={}/>*/}
-          <Route path="/team" component={TeamPage} />
         </Switch>
       </div>
     </BrowserRouter>
