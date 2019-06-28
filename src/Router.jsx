@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import MatchesContainer from './Components/Matches.container';
+import HomePage from './Components/Home/HomePage.container';
 
 const Router = () => {
   return (
@@ -10,7 +11,7 @@ const Router = () => {
           {/* <Route path="/" exact component={}/> */}
           <Route path="/matches" component={MatchesContainer} />
           {/* <Route path="/ranking" component={}/>
-          <Route path="/matches" component={}/>
+          <Route path="/ranking" component={}/>
           <Route path="/team" component={}/> */}
         </Switch>
       </div>
