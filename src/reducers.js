@@ -6,13 +6,13 @@ import {
 
 const initialState = { data: [], isLoading: false, error: null };
 
-const fetchReducer = (state = initialState, action) => {
+const fetchReducerCreator = (name) => (state = initialState, action) => {
   switch (action.type) {
-    case FETCH_ISLOADING:
+    case `${name}/${FETCH_ISLOADING}`:
       return { ...state, isLoading: true, error: null };
-    case FETCH_SUCCESS:
+    case `${name}/${FETCH_SUCCESS}`:
       return { ...state, isLoading: false, data: action.payload };
-    case FETCH_ERROR:
+    case `${name}/${FETCH_ERROR}`:
       return {
         ...state,
         isLoading: false,
@@ -24,4 +24,4 @@ const fetchReducer = (state = initialState, action) => {
   }
 };
 
-export default fetchReducer;
+export default fetchReducerCreator;
