@@ -41,9 +41,9 @@ class WilderComponent extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    data: state.fetchReducer.data,
-    loading: state.fetchReducer.isLoading,
-    error: state.fetchReducer.error,
+    data: state.fetchWildersReducer.data,
+    loading: state.fetchWildersReducer.isLoading,
+    error: state.fetchWildersReducer.error,
   };
 };
 

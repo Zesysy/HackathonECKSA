@@ -2,9 +2,11 @@ import axios from 'axios';
 
 import { fetchIsLoading, fetchSuccess, fetchError } from './fetchActions';
 
+export const RESSOURCE_NAME = 'wilders';
+
 export const fetchWilders = () => {
   return async (dispatch) => {
-    dispatch(fetchIsLoading());
+    dispatch(fetchIsLoading(RESSOURCE_NAME));
     axios
       .get(
         'https://us-central1-rc-league.cloudfunctions.net/wildcodeschool/wilders',
@@ -16,9 +18,9 @@ export const fetchWilders = () => {
       )
       .then((res) => {
         const datas = res.data;
-        dispatch(fetchSuccess(datas));
+        dispatch(fetchSuccess(RESSOURCE_NAME, datas));
         return datas;
       })
-      .catch((error) => dispatch(fetchError(error)));
+      .catch((error) => dispatch(fetchError(RESSOURCE_NAME, error)));
   };
 };

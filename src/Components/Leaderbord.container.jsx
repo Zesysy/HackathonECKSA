@@ -12,7 +12,6 @@ class LeaderbordComponentView extends React.Component {
   capitalize = () => {};
 
   render() {
-    debugger;
     const { error, isLoading, data } = this.props;
 
     const capitalize = (str) => {
@@ -20,7 +19,6 @@ class LeaderbordComponentView extends React.Component {
         return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
       });
     };
-    // debugger;
     let filterManager = [
       ...new Set(
         data.map(

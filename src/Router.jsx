@@ -12,6 +12,10 @@ const Router = () => {
     <BrowserRouter>
       <div>
         <Switch>
+          <Route path="/" exact component={HomePage} />
+          <Route path="/matches" component={MatchesContainer} />
+          <Route path="/ranking" component={LeaderbordComponentView} />
+          <Route path="/team" component={TeamPage} />
         </Switch>
       </div>
     </BrowserRouter>

@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 
 import { fetchMatches } from '../Actions/matchesAction';
 import MatchDual from './MatchDualComponent';
-import Layout from './Layout';
+import Layout from '../Components/Layout/Layout';
 
 import styles from './MatchDualComponent.module.css';
 
@@ -21,7 +21,7 @@ class MatchesContainer extends Component {
       return <Layout>Loading ...</Layout>;
     } else {
       return (
-        <>
+        <Layout>
           <Row>
             <Card bg="light" className="col-5 m-3">
               <Card.Body className={styles.titleColumn}>Domicile</Card.Body>
@@ -35,7 +35,7 @@ class MatchesContainer extends Component {
               return <MatchDual {...result} key={index} />;
             })}
           </div>
-        </>
+        </Layout>
       );
     }
   }
@@ -43,9 +43,9 @@ class MatchesContainer extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    data: state.fetchReducer.data,
-    loading: state.fetchReducer.isLoading,
-    error: state.fetchReducer.error,
+    data: state.fetchMatchesReducer.data,
+    loading: state.fetchMatchesReducer.isLoading,
+    error: state.fetchMatchesReducer.error,
   };
 };
 
