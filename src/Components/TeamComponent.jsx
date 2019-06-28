@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Dropdown, DropdownButton } from 'react-bootstrap';
 
 import { fetchWilders } from '../Actions/wildersAction';
 
@@ -17,20 +18,32 @@ class TestFetchComponent extends Component {
   render() {
     const { error, isLoading, data } = this.props;
 
+    let filteredData = [...new Set(data.map((item) => item.campus))];
+
     if (error) {
       return <div>Error! {error.message}</div>;
     } else if (isLoading) {
       return <div>Loading ...</div>;
     } else {
       return (
-        <div>
-          <h2>Choisissez votre campus :</h2>
+        <div className="filterCampus">
+          <p>Choisissez votre campus :</p>
+          <DropdownButton
+            variant="dark"
+            id="dropdown-item-button"
+            title="Dropdown button"
+          >
+            {filteredData.map((campus) => (
+              <Dropdown.Item>{campus}</Dropdown.Item>
+            ))}
+          </DropdownButton>
           <>
             {data.map((item, index) => (
-              <h3 key={index}>
-                {' '}
-                {index} {capitalize(item.lastname)} {capitalize(item.firstname)}
-              </h3>
+              <ul key={index}>
+                <li>
+                  {capitalize(item.lastname)} {capitalize(item.firstname)}
+                </li>
+              </ul>
             ))}
           </>
         </div>
