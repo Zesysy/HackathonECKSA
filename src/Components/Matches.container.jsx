@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
+import { Card, Row } from 'react-bootstrap';
 
 import { connect } from 'react-redux';
 
 import { fetchMatches } from '../Actions/matchesAction';
 import MatchDual from './MatchDualComponent';
 import Layout from './Layout';
-import { Container } from 'react-bootstrap';
+
+import styles from './MatchDualComponent.module.css';
 
 class MatchesContainer extends Component {
   componentDidMount() {
@@ -19,11 +21,21 @@ class MatchesContainer extends Component {
       return <Layout>Loading ...</Layout>;
     } else {
       return (
-        <Container>
-          {data.map((result, index) => {
-            return <MatchDual {...result} key={index} />;
-          })}
-        </Container>
+        <>
+          <Row>
+            <Card bg="light" className="col-5 m-3">
+              <Card.Body className={styles.titleColumn}>Domicile</Card.Body>
+            </Card>
+            <Card bg="light" className="col-5 m-3">
+              <Card.Body className={styles.titleColumn}>Visiteur</Card.Body>
+            </Card>
+          </Row>
+          <div>
+            {data.map((result, index) => {
+              return <MatchDual {...result} key={index} />;
+            })}
+          </div>
+        </>
       );
     }
   }
