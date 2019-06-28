@@ -11,24 +11,26 @@ class NextMatchContainer extends React.Component {
   componentDidMount() {
     this.props.fetchMatches();
   }
+
   render() {
-    const { error, isLoading, data, winnerUid } = this.props;
+    const { error, isLoading, data } = this.props;
+
     if (error) {
       return <Layout>Error! {error.message}</Layout>;
     } else if (isLoading) {
       return <Layout>Loading ...</Layout>;
     } else {
-      if ({ winnerUid } === false) {
-        console.log({ winnerUid });
-        return (
-          <Container>
-            {data.map((result, index) => {
+      return (
+        <Container>
+          {data
+            .filter(
+              (nextMatch, index) => typeof nextMatch.winnerUid !== 'string',
+            )
+            .map((result, index) => {
               return <NextOneMatch {...result} key={index} />;
             })}
-          </Container>
-        );
-      }
-      return <p>Pas de match prévu pour l'instant... Restez connecté !!!</p>;
+        </Container>
+      );
     }
   }
 }
